@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation App</title>
+</head>
+<body>
+    <h1>English to Spanish Translation</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Choose input type:</label><br>
+        <input type="radio" name="input_type" value="text" checked> Text<br>
+        <input type="radio" name="input_type" value="audio"> Audio<br><br>
+
+        <div id="text-input" style="display: block;">
+            <label>Enter text:</label><br>
+            <textarea name="text_input" rows="4" cols="50"></textarea><br><br>
+        </div>
+
+        <div id="audio-input" style="display: none;">
+            <label>Upload audio file:</label><br>
+            <input type="file" name="audio_file" accept=".wav, .mp3, .m4a"><br><br>
+        </div>
+
+        <label>Output format:</label><br>
+        <input type="radio" name="output_format" value="text" checked> Text<br>
+        <input type="radio" name="output_format" value="audio"> Audio<br><br>
+
+        <button type="submit">Translate</button>
+    </form>
+
+    <div>
+        {% if translation %}
+            <h2>Translation Result:</h2>
+            <p>{{ translation }}</p>
+        {% endif %}
+
+        {% if audio_file %}
+            <h2>Audio Translation:</h2>
+            <audio controls>
+                <source src="{{ url_for('download_audio') }}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        {% endif %}
+    </div>
+
+    <script>
+        document.querySelector('input[name="input_type"][value="text"]').addEventListener("change", function() {
+            document.getElementById("text-input").style.display = "block";
+            document.getElementById("audio-input").style.display = "none";
+        });
+        document.querySelector('input[name="input_type"][value="audio"]').addEventListener("change", function() {
+            document.getElementById("text-input").style.display = "none";
+            document.getElementById("audio-input").style.display = "block";
+        });
+    </script>
+</body>
+</html>
