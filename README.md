@@ -31,6 +31,9 @@ The Multi-Modal Translator is a user-friendly web-based application designed to 
 
 The interface, built with HTML and CSS, allows users to easily select input/output options, upload files, and access their translations. JavaScript enables dynamic input handling, enhancing user interaction.
 
+<br>
+<img src="https://github.com/karthi-1212/Multi-Modal-Translator-with-Text-and-Speech-Translation-in-NLP/UI - Img/Front - End.png" alt="Times Series img" width="1000" height="400">
+
 ## Achievements
 
 This project highlights effective NLP techniques for multi-modal translation, making it a versatile tool for real-world applications. It demonstrates how NLP, Flask, and modern translation models can be combined to create accessible communication tools.
